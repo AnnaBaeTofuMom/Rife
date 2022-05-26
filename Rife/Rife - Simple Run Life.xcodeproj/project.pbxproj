@@ -117,6 +117,9 @@
 		1A9BAD9C2744CFD600208546 /* Rife - Simple Run Life */ = {
 			isa = PBXGroup;
 			children = (
+				3A812A0A283FBC8400A40EB6 /* APIService */,
+				3A812A08283FBC7000A40EB6 /* Model */,
+				3A812A07283FBC6500A40EB6 /* ViewModel */,
 				3AC0870F274A68B3006065FA /* RealmModel.swift */,
 				3AC08706274A4BA2006065FA /* MapKitExtensions.swift */,
 				3A26E894274BFDDE0086C055 /* ViewController+Extension.swift */,
@@ -169,6 +172,27 @@
 				3A26E88F274BE8C60086C055 /* NotoSansKR-Black.otf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		3A812A07283FBC6500A40EB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A812A08283FBC7000A40EB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A812A0A283FBC8400A40EB6 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIService;
 			sourceTree = "<group>";
 		};
 		3AC0870A274A6836006065FA /* Frameworks */ = {
