@@ -16,7 +16,6 @@
 		1A2DD6C8275DED6E00D9EE56 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6C7275DED6E00D9EE56 /* IQKeyboardManagerSwift */; };
 		1A9BAD9E2744CFD600208546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BAD9D2744CFD600208546 /* AppDelegate.swift */; };
 		1A9BADA02744CFD600208546 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */; };
-		1A9BADA52744CFD600208546 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADA32744CFD600208546 /* Map.storyboard */; };
 		1A9BADA72744CFD800208546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADA62744CFD800208546 /* Assets.xcassets */; };
 		1A9BADAA2744CFD800208546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADA82744CFD800208546 /* LaunchScreen.storyboard */; };
 		1A9BADB32744D15D00208546 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 1A9BADB22744D15D00208546 /* MarqueeLabel */; };
@@ -24,9 +23,6 @@
 		1A9BADBE2744E90E00208546 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 1A9BADBD2744E90E00208546 /* SideMenu */; };
 		1A9BADC02744EA4300208546 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BADBF2744EA4200208546 /* SideMenuNavigationController.swift */; };
 		1A9BADC42744EF6200208546 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BADC32744EF6200208546 /* SideMenuViewController.swift */; };
-		1A9BADC62744FA7800208546 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADC52744FA7800208546 /* Profile.storyboard */; };
-		1A9BADC82744FA8200208546 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADC72744FA8200208546 /* Settings.storyboard */; };
-		1A9BADCA2744FA8E00208546 /* Records.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADC92744FA8E00208546 /* Records.storyboard */; };
 		1A9BADCC2744FB0100208546 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BADCB2744FB0100208546 /* ProfileViewController.swift */; };
 		1A9BADD327477C0800208546 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BADD227477C0800208546 /* RecordsTableViewCell.swift */; };
 		3A26E890274BE8C60086C055 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A26E88F274BE8C60086C055 /* NotoSansKR-Black.otf */; };
@@ -39,7 +35,6 @@
 		3A2E74F5284E3F84004C209D /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E74F4284E3F84004C209D /* ViewController+Extension.swift */; };
 		3A2E74F7284E3F89004C209D /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E74F6284E3F89004C209D /* MapKitExtensions.swift */; };
 		3A4431C32745653100C4A0E6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4431C22745653000C4A0E6 /* SettingsViewController.swift */; };
-		3A4431C52745697F00C4A0E6 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4431C42745697F00C4A0E6 /* Contact.storyboard */; };
 		3A4431C7274569C700C4A0E6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4431C6274569C700C4A0E6 /* ContactViewController.swift */; };
 		3A4431C9274573ED00C4A0E6 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4431C8274573ED00C4A0E6 /* RecordsViewController.swift */; };
 		3AE1F4A0274F1CF900AF79A7 /* ChannelIOSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE1F49F274F1CF900AF79A7 /* ChannelIOSDK */; };
@@ -52,16 +47,12 @@
 		1A9BAD9A2744CFD600208546 /* Rife - Simple Run Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rife - Simple Run Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9BAD9D2744CFD600208546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A9BADA42744CFD600208546 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
 		1A9BADA62744CFD800208546 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A9BADA92744CFD800208546 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A9BADAB2744CFD800208546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A9BADB82744DF8000208546 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1A9BADBF2744EA4200208546 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SideMenuNavigationController.swift; path = "Rife - Simple Run Life/Storyboard/SideMenuNavigationController.swift"; sourceTree = SOURCE_ROOT; };
 		1A9BADC32744EF6200208546 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SideMenuViewController.swift; path = "Rife - Simple Run Life/Storyboard/SideMenuViewController.swift"; sourceTree = SOURCE_ROOT; };
-		1A9BADC52744FA7800208546 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		1A9BADC72744FA8200208546 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		1A9BADC92744FA8E00208546 /* Records.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Records.storyboard; sourceTree = "<group>"; };
 		1A9BADCB2744FB0100208546 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "Rife - Simple Run Life/Storyboard/ProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
 		1A9BADD227477C0800208546 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordsTableViewCell.swift; path = "Rife - Simple Run Life/Storyboard/RecordsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		3A26E88F274BE8C60086C055 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
@@ -70,7 +61,6 @@
 		3A2E74F4284E3F84004C209D /* ViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		3A2E74F6284E3F89004C209D /* MapKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		3A4431C22745653000C4A0E6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		3A4431C42745697F00C4A0E6 /* Contact.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		3A4431C6274569C700C4A0E6 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		3A4431C8274573ED00C4A0E6 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,11 +107,13 @@
 		1A9BAD9C2744CFD600208546 /* Rife - Simple Run Life */ = {
 			isa = PBXGroup;
 			children = (
+				1CFDAEAF2853A29A003006A3 /* ProfileTab */,
+				1CFDAEAE2853A291003006A3 /* RecordTab */,
+				1CFDAEAD2853A287003006A3 /* MainTab */,
 				3A2E74FB284E4048004C209D /* ViewModel */,
 				3A812A08283FBC7000A40EB6 /* Model */,
 				1A9BADCD27477B5700208546 /* font */,
 				1A9BADBB2744DF9400208546 /* ViewController */,
-				1A9BADBA2744DF8600208546 /* Storyboard */,
 				1A9BAD9D2744CFD600208546 /* AppDelegate.swift */,
 				1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */,
 				1A9BADA62744CFD800208546 /* Assets.xcassets */,
@@ -129,18 +121,6 @@
 				1A9BADAB2744CFD800208546 /* Info.plist */,
 			);
 			path = "Rife - Simple Run Life";
-			sourceTree = "<group>";
-		};
-		1A9BADBA2744DF8600208546 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				1A9BADA32744CFD600208546 /* Map.storyboard */,
-				1A9BADC52744FA7800208546 /* Profile.storyboard */,
-				1A9BADC72744FA8200208546 /* Settings.storyboard */,
-				1A9BADC92744FA8E00208546 /* Records.storyboard */,
-				3A4431C42745697F00C4A0E6 /* Contact.storyboard */,
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		1A9BADBB2744DF9400208546 /* ViewController */ = {
@@ -167,6 +147,99 @@
 				3A26E88F274BE8C60086C055 /* NotoSansKR-Black.otf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		1CFDAEAD2853A287003006A3 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				1CFDAEB72853A2E1003006A3 /* Model */,
+				1CFDAEB62853A2DE003006A3 /* View */,
+				1CFDAEB82853A2E4003006A3 /* ViewModel */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		1CFDAEAE2853A291003006A3 /* RecordTab */ = {
+			isa = PBXGroup;
+			children = (
+				1CFDAEB32853A2D1003006A3 /* View */,
+				1CFDAEB42853A2D5003006A3 /* Model */,
+				1CFDAEB52853A2D8003006A3 /* ViewModel */,
+			);
+			path = RecordTab;
+			sourceTree = "<group>";
+		};
+		1CFDAEAF2853A29A003006A3 /* ProfileTab */ = {
+			isa = PBXGroup;
+			children = (
+				1CFDAEB02853A2A0003006A3 /* View */,
+				1CFDAEB12853A2A5003006A3 /* Model */,
+				1CFDAEB22853A2A9003006A3 /* ViewModel */,
+			);
+			path = ProfileTab;
+			sourceTree = "<group>";
+		};
+		1CFDAEB02853A2A0003006A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CFDAEB12853A2A5003006A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CFDAEB22853A2A9003006A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1CFDAEB32853A2D1003006A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CFDAEB42853A2D5003006A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CFDAEB52853A2D8003006A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1CFDAEB62853A2DE003006A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CFDAEB72853A2E1003006A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CFDAEB82853A2E4003006A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3A2E74FB284E4048004C209D /* ViewModel */ = {
@@ -277,13 +350,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A4431C52745697F00C4A0E6 /* Contact.storyboard in Resources */,
-				1A9BADC62744FA7800208546 /* Profile.storyboard in Resources */,
 				1A9BADAA2744CFD800208546 /* LaunchScreen.storyboard in Resources */,
-				1A9BADCA2744FA8E00208546 /* Records.storyboard in Resources */,
 				1A9BADA72744CFD800208546 /* Assets.xcassets in Resources */,
-				1A9BADA52744CFD600208546 /* Map.storyboard in Resources */,
-				1A9BADC82744FA8200208546 /* Settings.storyboard in Resources */,
 				3A26E890274BE8C60086C055 /* NotoSansKR-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,14 +386,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1A9BADA32744CFD600208546 /* Map.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A9BADA42744CFD600208546 /* Base */,
-			);
-			name = Map.storyboard;
-			sourceTree = "<group>";
-		};
 		1A9BADA82744CFD800208546 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -462,7 +522,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 97JRLS4642;
+				DEVELOPMENT_TEAM = 5LZNHGFB8C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rife - Simple Run Life/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rife - 심플한 러닝 기록 앱";
@@ -480,7 +540,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,7 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 97JRLS4642;
+				DEVELOPMENT_TEAM = 5LZNHGFB8C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rife - Simple Run Life/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rife - 심플한 러닝 기록 앱";
@@ -519,7 +579,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
