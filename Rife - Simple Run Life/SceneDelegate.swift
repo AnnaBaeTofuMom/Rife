@@ -9,7 +9,6 @@ import UIKit
 import ChannelIOFront
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
     var window: UIWindow?
     var channelWindow: UIWindow?
     
@@ -28,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
         let interval = Int(Date().timeIntervalSince(start))
-        NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil,userInfo: ["time" : interval])
+        NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time": interval])
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
