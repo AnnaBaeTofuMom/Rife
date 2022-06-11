@@ -23,6 +23,8 @@ class MapViewController: UIViewController {
     let locationManager: CLLocationManager = CLLocationManager()
     let fileManager = FileManager()
     let motionManager = CMMotionActivityManager()
+    let leftNavButton = UIBarButtonItem()
+    let rightNavButton = UIBarButtonItem()
     
     var currentOverlay: MKPolyline = MKPolyline()
     var previousCoordinate: CLLocationCoordinate2D?
@@ -60,6 +62,7 @@ class MapViewController: UIViewController {
         customView.mapView.delegate = self
         
         setNotifications()
+        setNavigator()
         
         motionManager.startActivityUpdates(to: .main) { activity in
             guard let activity = activity else { return }
@@ -76,6 +79,13 @@ class MapViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setNavigator() {
+        leftNavButton.image = UIImage(named: "rife_icon")?.withRenderingMode(.alwaysOriginal)
+        rightNavButton.image = UIImage(named: "setting_icon")?.withRenderingMode(.alwaysOriginal)
+        self.navigationItem.leftBarButtonItem = leftNavButton
+        self.navigationItem.rightBarButtonItem = rightNavButton
     }
     
     func generateMapImage() {
