@@ -51,7 +51,8 @@ class MapView: UIView {
         }
         
         timeLabel.text = "00:00:00"
-        timeLabel.font.withSize(70)
+        timeLabel.font = UIFont(name: "DINCondensed-Bold", size: 70)
+        timeLabel.textColor = UIColor(named: "default_black")
         
         playButton.setImage(UIImage(named: "play_btn"), for: .normal)
         pauseButton.setImage(UIImage(named: "pause_btn"), for: .normal)
