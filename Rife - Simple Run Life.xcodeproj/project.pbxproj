@@ -13,6 +13,7 @@
 		1A2DD6BF2754B1D600D9EE56 /* OpensourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2DD6BE2754B1D600D9EE56 /* OpensourceViewController.swift */; };
 		1A2DD6C22754B8B900D9EE56 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6C12754B8B900D9EE56 /* Zip */; };
 		1A2DD6C8275DED6E00D9EE56 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6C7275DED6E00D9EE56 /* IQKeyboardManagerSwift */; };
+		1A58CD8B2854663D001082F6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A58CD8A2854663D001082F6 /* MapView.swift */; };
 		1A9BAD9E2744CFD600208546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BAD9D2744CFD600208546 /* AppDelegate.swift */; };
 		1A9BADA02744CFD600208546 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */; };
 		1A9BADA72744CFD800208546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADA62744CFD800208546 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		1A2DD6AC274B8AB600D9EE56 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordDetailViewController.swift; path = "Rife - Simple Run Life/RecordTab/RecordDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		1A2DD6BE2754B1D600D9EE56 /* OpensourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpensourceViewController.swift; sourceTree = "<group>"; };
+		1A58CD8A2854663D001082F6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1A9BAD9A2744CFD600208546 /* Rife - Simple Run Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rife - Simple Run Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9BAD9D2744CFD600208546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		1CFDAEB62853A2DE003006A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1A58CD8A2854663D001082F6 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				1A9BADA02744CFD600208546 /* SceneDelegate.swift in Sources */,
 				1A9BADB92744DF8000208546 /* MapViewController.swift in Sources */,
 				1A2DD6BF2754B1D600D9EE56 /* OpensourceViewController.swift in Sources */,
+				1A58CD8B2854663D001082F6 /* MapView.swift in Sources */,
 				3A2E74F7284E3F89004C209D /* MapKitExtensions.swift in Sources */,
 				3A2E74F5284E3F84004C209D /* ViewController+Extension.swift in Sources */,
 				3A4431C7274569C700C4A0E6 /* ContactViewController.swift in Sources */,
@@ -508,7 +512,6 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 사용을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Map;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -533,7 +536,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 5LZNHGFB8C;
+				DEVELOPMENT_TEAM = 97JRLS4642;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rife - Simple Run Life/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rife - 심플한 러닝 기록 앱";
@@ -547,7 +550,6 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 사용을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Map;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
