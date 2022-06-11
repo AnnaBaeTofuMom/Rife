@@ -37,6 +37,8 @@
 		3A4431C7274569C700C4A0E6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4431C6274569C700C4A0E6 /* ContactViewController.swift */; };
 		3A4431C9274573ED00C4A0E6 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4431C8274573ED00C4A0E6 /* RecordsViewController.swift */; };
 		3AE1F4A0274F1CF900AF79A7 /* ChannelIOSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE1F49F274F1CF900AF79A7 /* ChannelIOSDK */; };
+		3AE2BBC22854B3B10002185C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BBC12854B3B10002185C /* TabBarController.swift */; };
+		3AE2BBC72854B48D0002185C /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2BBC62854B48D0002185C /* ChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		3A4431C22745653000C4A0E6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3A4431C6274569C700C4A0E6 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		3A4431C8274573ED00C4A0E6 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		3AE2BBC12854B3B10002185C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3AE2BBC62854B48D0002185C /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +128,13 @@
 		1A9BAD9C2744CFD600208546 /* Rife - Simple Run Life */ = {
 			isa = PBXGroup;
 			children = (
+				3AE2BBC32854B4600002185C /* ChartTab */,
 				1A58CD8C28548326001082F6 /* DINCondensed-Bold.ttf */,
 				1A9BADA62744CFD800208546 /* Assets.xcassets */,
 				1A9BADA82744CFD800208546 /* LaunchScreen.storyboard */,
 				1A9BAD9D2744CFD600208546 /* AppDelegate.swift */,
 				1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */,
+				3AE2BBC12854B3B10002185C /* TabBarController.swift */,
 				1A58CD872853AB06001082F6 /* Extensions */,
 				1A58CD862853AA69001082F6 /* Settings */,
 				1CFDAEAE2853A291003006A3 /* RecordTab */,
@@ -247,6 +253,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3AE2BBC32854B4600002185C /* ChartTab */ = {
+			isa = PBXGroup;
+			children = (
+				3AE2BBC52854B4750002185C /* ViewController */,
+				3AE2BBC42854B46B0002185C /* View */,
+			);
+			path = ChartTab;
+			sourceTree = "<group>";
+		};
+		3AE2BBC42854B46B0002185C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3AE2BBC52854B4750002185C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AE2BBC62854B48D0002185C /* ChartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,12 +376,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A2DD6AD274B8AB600D9EE56 /* RecordDetailViewController.swift in Sources */,
+				3AE2BBC22854B3B10002185C /* TabBarController.swift in Sources */,
 				1A9BADCC2744FB0100208546 /* ProfileViewController.swift in Sources */,
 				3A2E74F3284E3F7C004C209D /* RealmModel.swift in Sources */,
 				1A9BAD9E2744CFD600208546 /* AppDelegate.swift in Sources */,
 				1A9BADA02744CFD600208546 /* SceneDelegate.swift in Sources */,
 				1A9BADB92744DF8000208546 /* MapViewController.swift in Sources */,
 				1A2DD6BF2754B1D600D9EE56 /* OpensourceViewController.swift in Sources */,
+				3AE2BBC72854B48D0002185C /* ChartViewController.swift in Sources */,
 				1A58CD8B2854663D001082F6 /* MapView.swift in Sources */,
 				3A2E74F7284E3F89004C209D /* MapKitExtensions.swift in Sources */,
 				3A2E74F5284E3F84004C209D /* ViewController+Extension.swift in Sources */,
