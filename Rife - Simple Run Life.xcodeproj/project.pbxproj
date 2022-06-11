@@ -10,7 +10,6 @@
 		1A2DD6AD274B8AB600D9EE56 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2DD6AC274B8AB600D9EE56 /* RecordDetailViewController.swift */; };
 		1A2DD6B9274E13F900D9EE56 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6B8274E13F900D9EE56 /* Realm */; };
 		1A2DD6BB274E13F900D9EE56 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6BA274E13F900D9EE56 /* RealmSwift */; };
-		1A2DD6BD2754B16500D9EE56 /* OpensourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2DD6BC2754B16500D9EE56 /* OpensourceTableViewCell.swift */; };
 		1A2DD6BF2754B1D600D9EE56 /* OpensourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2DD6BE2754B1D600D9EE56 /* OpensourceViewController.swift */; };
 		1A2DD6C22754B8B900D9EE56 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6C12754B8B900D9EE56 /* Zip */; };
 		1A2DD6C8275DED6E00D9EE56 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6C7275DED6E00D9EE56 /* IQKeyboardManagerSwift */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		1A2DD6AC274B8AB600D9EE56 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordDetailViewController.swift; path = "Rife - Simple Run Life/RecordTab/RecordDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
-		1A2DD6BC2754B16500D9EE56 /* OpensourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpensourceTableViewCell.swift; path = "Rife - Simple Run Life/Settings/OpensourceTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		1A2DD6BE2754B1D600D9EE56 /* OpensourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpensourceViewController.swift; sourceTree = "<group>"; };
 		1A9BAD9A2744CFD600208546 /* Rife - Simple Run Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rife - Simple Run Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9BAD9D2744CFD600208546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 			children = (
 				3A4431C22745653000C4A0E6 /* SettingsViewController.swift */,
 				1A2DD6BE2754B1D600D9EE56 /* OpensourceViewController.swift */,
-				1A2DD6BC2754B16500D9EE56 /* OpensourceTableViewCell.swift */,
 				3A4431C6274569C700C4A0E6 /* ContactViewController.swift */,
 			);
 			path = Settings;
@@ -355,7 +352,6 @@
 				3A4431C9274573ED00C4A0E6 /* RecordsViewController.swift in Sources */,
 				1A9BADD327477C0800208546 /* RecordsTableViewCell.swift in Sources */,
 				3A2E74F1284E3F71004C209D /* RunMode.swift in Sources */,
-				1A2DD6BD2754B16500D9EE56 /* OpensourceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
