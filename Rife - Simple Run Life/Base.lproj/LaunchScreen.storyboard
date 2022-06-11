@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,25 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Start" translatesAutoresizingMaskIntoConstraints="NO" id="Ykp-Yf-BqD">
-                                <rect key="frame" x="87" y="196" width="240" height="78"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ykp-Yf-BqD">
+                                <rect key="frame" x="7" y="194" width="400" height="298"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="JJh-2v-yXD"/>
+                                    <constraint firstAttribute="width" constant="400" id="8NH-N7-dCM"/>
+                                    <constraint firstAttribute="height" constant="298" id="jJC-sG-GAg"/>
                                 </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RIFE-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ia6-ZB-Tqs">
-                                <rect key="frame" x="90" y="309" width="234" height="56.5"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.49411764705882355" green="0.99215686274509807" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.87058818339999999" green="0.91764706370000004" blue="0.88235294819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ykp-Yf-BqD" secondAttribute="trailing" constant="87" id="BoP-UI-LWK"/>
-                            <constraint firstItem="Ia6-ZB-Tqs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="NcA-CD-Fb8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ia6-ZB-Tqs" secondAttribute="trailing" constant="90" id="OPl-Vz-lge"/>
-                            <constraint firstItem="Ykp-Yf-BqD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="itl-AL-IKp"/>
-                            <constraint firstItem="Ykp-Yf-BqD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="152" id="kfT-cj-iYn"/>
-                            <constraint firstItem="Ia6-ZB-Tqs" firstAttribute="top" secondItem="Ykp-Yf-BqD" secondAttribute="bottom" constant="35" id="xnG-BT-Cv1"/>
+                            <constraint firstItem="Ykp-Yf-BqD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="2Pv-CJ-gjh"/>
+                            <constraint firstItem="Ykp-Yf-BqD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="N7W-xR-2ef"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ykp-Yf-BqD" secondAttribute="trailing" constant="7" id="fPT-Tf-jIX"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,7 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RIFE-1" width="190.5" height="56.5"/>
-        <image name="Start" width="229" height="78"/>
+        <image name="launch_image" width="314" height="298"/>
     </resources>
 </document>

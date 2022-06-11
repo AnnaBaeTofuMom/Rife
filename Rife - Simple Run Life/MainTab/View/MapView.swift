@@ -18,6 +18,7 @@ class MapView: UIView {
     let pauseButton = UIButton()
     let stopButton = UIButton()
     let timeLabel = UILabel()
+    let distanceLabel = UILabel()
     let runButtonStack: UIStackView = { () -> UIStackView in
         let stack = UIStackView()
         stack.distribution = .equalCentering
@@ -42,7 +43,7 @@ class MapView: UIView {
             runButtonStack.addArrangedSubview($0)
         }
         
-        [mapView, topDivider, bottomDivider, runButtonStack, timeLabel].forEach {
+        [mapView, topDivider, bottomDivider, runButtonStack, timeLabel, distanceLabel].forEach {
             self.addSubview($0)
         }
         
@@ -53,6 +54,10 @@ class MapView: UIView {
         timeLabel.text = "00:00:00"
         timeLabel.font = UIFont(name: "DINCondensed-Bold", size: 70)
         timeLabel.textColor = UIColor(named: "default_black")
+        distanceLabel.text = "0.0km"
+        distanceLabel.font = UIFont(name: "DINCondensed-Bold", size: 70)
+        distanceLabel.textColor = UIColor(named: "default_black")
+        
         
         playButton.setImage(UIImage(named: "play_btn"), for: .normal)
         pauseButton.setImage(UIImage(named: "pause_btn"), for: .normal)
@@ -77,18 +82,23 @@ class MapView: UIView {
             make.bottom.equalTo(bottomDivider.snp.top).offset(-15)
         }
         
+        distanceLabel.snp.makeConstraints { make in
+            make.top.equalTo(mapView.snp.top).offset(54)
+            make.centerX.equalToSuperview()
+        }
+        
         bottomDivider.snp.makeConstraints { make in
             make.top.equalTo(mapView.snp.bottom).inset(15)
             make.height.equalTo(1)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-15)
         }
         
         runButtonStack.snp.makeConstraints { make in
             make.bottom.equalTo(mapView).offset(-150)
             make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().offset(34)
-            make.trailing.equalToSuperview().offset(-34)
+            make.leading.equalToSuperview().offset(54)
+            make.trailing.equalToSuperview().offset(-54)
         }
         
         playButton.snp.makeConstraints { make in
@@ -105,7 +115,7 @@ class MapView: UIView {
         
         timeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(runButtonStack.snp.bottom).offset(30)
+            make.bottom.equalTo(mapView.snp.bottom).offset(-54)
         }
     }
 }
