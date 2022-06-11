@@ -19,12 +19,12 @@ import CoreMotion
 
 class MapViewController: UIViewController {
     let customView = MapView()
+    
     let localRealm = try! Realm()
     let locationManager: CLLocationManager = CLLocationManager()
     let fileManager = FileManager()
     let motionManager = CMMotionActivityManager()
-    let leftNavButton = UIBarButtonItem()
-    let rightNavButton = UIBarButtonItem()
+    
     
     var currentOverlay: MKPolyline = MKPolyline()
     var previousCoordinate: CLLocationCoordinate2D?
@@ -49,32 +49,21 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
-        locationManager.requestAlwaysAuthorization()
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = true
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 10
         
-        customView.mapView.setRegion(MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)), animated: true)
-        customView.mapView.mapType = MKMapType.standard
-        customView.mapView.showsUserLocation = true
-        customView.mapView.setUserTrackingMode(.follow, animated: true)
-        customView.mapView.delegate = self
-        
+        setLocationManager()
+        setMap(currentLocation: currentLocation)
         setNotifications()
         setNavigator()
-        
+        setMotionManager()
+    }
+    
+    func setMotionManager() {
         motionManager.startActivityUpdates(to: .main) { activity in
             guard let activity = activity else { return }
             
             if self.runMode == .running{
-                if activity.running == true || activity.walking == true {
-                    if activity.stationary == false {
-                        self.locationManager.startUpdatingLocation()
-                    } else {
-                        self.locationManager.stopUpdatingLocation()
-                    }
+                if activity.stationary == false {
+                    self.locationManager.startUpdatingLocation()
                 } else {
                     self.locationManager.stopUpdatingLocation()
                 }
@@ -82,9 +71,30 @@ class MapViewController: UIViewController {
         }
     }
     
+    func setMap(currentLocation: CLLocationCoordinate2D) {
+        customView.mapView.setRegion(MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)), animated: true)
+        customView.mapView.mapType = MKMapType.standard
+        customView.mapView.showsUserLocation = true
+        customView.mapView.setUserTrackingMode(.follow, animated: true)
+        customView.mapView.delegate = self
+    }
+    
+    func setLocationManager() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = true
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 10
+    }
+    
     func setNavigator() {
+        let leftNavButton = UIBarButtonItem()
+        let rightNavButton = UIBarButtonItem()
+        
         leftNavButton.image = UIImage(named: "rife_icon")?.withRenderingMode(.alwaysOriginal)
         rightNavButton.image = UIImage(named: "setting_icon")?.withRenderingMode(.alwaysOriginal)
+        
         self.navigationItem.leftBarButtonItem = leftNavButton
         self.navigationItem.rightBarButtonItem = rightNavButton
     }
@@ -114,7 +124,7 @@ class MapViewController: UIViewController {
                 }
                 
                 path.lineWidth = 7
-                UIColor(hue: 0.6694, saturation: 1, brightness: 0.91, alpha: 1.0).setStroke()
+                UIColor(named: "polyline_purple")!.setStroke()
                 path.stroke()
             }
             
@@ -125,10 +135,10 @@ class MapViewController: UIViewController {
     @objc func addbackGroundTime(_ notification:Notification) {
         if runMode == .running {
             let time = notification.userInfo?["time"] as? Int ?? 0
-            hours += time/3600
-            let leftTime = time%3600
-            minutes += leftTime/60
-            seconds += leftTime%60
+            hours += time / 3600
+            let leftTime = time % 3600
+            minutes += leftTime / 60
+            seconds += leftTime % 60
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MapViewController.keepTimer), userInfo: nil, repeats: true)
         }
     }
@@ -249,8 +259,9 @@ class MapViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    func resetTimeLabel() {
+    func resetLabel() {
         self.customView.timeLabel.text = "00:00:00"
+        self.customView.distanceLabel.text = "0.0km"
     }
     
     @IBAction func runButtonClicked(_ sender: UIButton) {
@@ -265,7 +276,7 @@ class MapViewController: UIViewController {
             checkCurrentLocationAuthorization(authorizationStatus: authorizationStatus)
             
             if authorizationStatus == .authorizedAlways {
-                resetTimeLabel()
+                resetLabel()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MapViewController.keepTimer), userInfo: nil, repeats: true)
                 self.totalDistance = CLLocationDistance()
                 self.previousCoordinate = locationManager.location?.coordinate
@@ -306,7 +317,7 @@ class MapViewController: UIViewController {
         } else if runMode == .finished {
             timer.invalidate()
             (hours, minutes, seconds, fractions) = (0, 0, 0, 0)
-            resetTimeLabel()
+            resetLabel()
             self.customView.mapView.setUserTrackingMode(.follow, animated: true)
             locationManager.stopUpdatingLocation()
             let overlays = self.customView.mapView.overlays
@@ -324,12 +335,11 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyLine = overlay as? MKPolyline
         else {
-            print("can't draw polyline")
             return MKOverlayRenderer()
         }
         
         let renderer = MKPolylineRenderer(polyline: polyLine)
-        renderer.strokeColor = UIColor(hue: 0.6694, saturation: 1, brightness: 0.91, alpha: 1.0)
+        renderer.strokeColor = UIColor(named: "polyline_purple")
         renderer.lineWidth = 10.0
         renderer.alpha = 1.0
         
@@ -356,7 +366,7 @@ extension MapViewController: CLLocationManagerDelegate {
         distanceFormatter.units = .metric
         let addedDistance = loc1.distance(from: loc2)
         let stringDistance = distanceFormatter.string(fromDistance: totalDistance)
-        //self.resultDistanceLabel.text = "\(stringDistance)"
+        self.customView.distanceLabel.text = "\(stringDistance)"
         let lineDraw = MKPolyline(coordinates: points, count:points.count)
         self.customView.mapView.addOverlay(lineDraw)
         self.totalDistance += addedDistance
