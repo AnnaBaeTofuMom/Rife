@@ -48,7 +48,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
         locationManager.requestAlwaysAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = true
@@ -56,6 +56,7 @@ class MapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
         
+        customView.mapView.setRegion(MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)), animated: true)
         customView.mapView.mapType = MKMapType.standard
         customView.mapView.showsUserLocation = true
         customView.mapView.setUserTrackingMode(.follow, animated: true)
@@ -339,9 +340,10 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        
+
         let latitude = location.coordinate.latitude
         let longtitude = location.coordinate.longitude
+        
         let point1 = CLLocationCoordinate2DMake(self.previousCoordinate?.latitude ?? location.coordinate.latitude, self.previousCoordinate?.longitude ?? location.coordinate.longitude)
         let point2: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
 
