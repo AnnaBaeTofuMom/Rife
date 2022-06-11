@@ -81,14 +81,14 @@ class MapView: UIView {
             make.top.equalTo(mapView.snp.bottom).inset(15)
             make.height.equalTo(1)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-15)
         }
         
         runButtonStack.snp.makeConstraints { make in
             make.bottom.equalTo(mapView).offset(-150)
             make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().offset(34)
-            make.trailing.equalToSuperview().offset(-34)
+            make.leading.equalToSuperview().offset(54)
+            make.trailing.equalToSuperview().offset(-54)
         }
         
         playButton.snp.makeConstraints { make in
