@@ -14,6 +14,7 @@
 		1A2DD6C22754B8B900D9EE56 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6C12754B8B900D9EE56 /* Zip */; };
 		1A2DD6C8275DED6E00D9EE56 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2DD6C7275DED6E00D9EE56 /* IQKeyboardManagerSwift */; };
 		1A58CD8B2854663D001082F6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A58CD8A2854663D001082F6 /* MapView.swift */; };
+		1A58CD8D28548333001082F6 /* DINCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A58CD8C28548326001082F6 /* DINCondensed-Bold.ttf */; };
 		1A9BAD9E2744CFD600208546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BAD9D2744CFD600208546 /* AppDelegate.swift */; };
 		1A9BADA02744CFD600208546 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */; };
 		1A9BADA72744CFD800208546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9BADA62744CFD800208546 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		1A2DD6AC274B8AB600D9EE56 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordDetailViewController.swift; path = "Rife - Simple Run Life/RecordTab/RecordDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		1A2DD6BE2754B1D600D9EE56 /* OpensourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpensourceViewController.swift; sourceTree = "<group>"; };
 		1A58CD8A2854663D001082F6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1A58CD8C28548326001082F6 /* DINCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		1A9BAD9A2744CFD600208546 /* Rife - Simple Run Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rife - Simple Run Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9BAD9D2744CFD600208546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A9BAD9F2744CFD600208546 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		1A9BAD9C2744CFD600208546 /* Rife - Simple Run Life */ = {
 			isa = PBXGroup;
 			children = (
+				1A58CD8C28548326001082F6 /* DINCondensed-Bold.ttf */,
 				1A9BADA62744CFD800208546 /* Assets.xcassets */,
 				1A9BADA82744CFD800208546 /* LaunchScreen.storyboard */,
 				1A9BAD9D2744CFD600208546 /* AppDelegate.swift */,
@@ -329,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A58CD8D28548333001082F6 /* DINCondensed-Bold.ttf in Resources */,
 				1A9BADAA2744CFD800208546 /* LaunchScreen.storyboard in Resources */,
 				1A9BADA72744CFD800208546 /* Assets.xcassets in Resources */,
 			);
