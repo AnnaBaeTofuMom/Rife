@@ -18,10 +18,13 @@ import AuthenticationServices
 import CoreMotion
 
 class MapViewController: UIViewController {
+    let customView = MapView()
     let localRealm = try! Realm()
     let locationManager: CLLocationManager = CLLocationManager()
     let fileManager = FileManager()
     let motionManager = CMMotionActivityManager()
+    let leftNavButton = UIBarButtonItem()
+    let rightNavButton = UIBarButtonItem()
     
     var currentOverlay: MKPolyline = MKPolyline()
     var previousCoordinate: CLLocationCoordinate2D?
@@ -38,23 +41,14 @@ class MapViewController: UIViewController {
     var startTime: Date = Date()
     var endTime: Date = Date()
     
-    @IBOutlet var weatherIconView: UIImageView!
-    @IBOutlet var recordView: UIImageView!
-    @IBOutlet var mapKit: MKMapView!
-    @IBOutlet var resultDistanceLabel: UILabel!
-    @IBOutlet var resultTimeLabel: UILabel!
-    @IBOutlet var runButton: UIButton!
-    @IBOutlet var navigationBar: UIView!
-    
+    override func loadView() {
+        super.loadView()
+        view = customView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true
-        weatherIconView.layer.cornerRadius = weatherIconView.frame.width / 2
-        weatherIconView.layer.borderColor = UIColor(named: "black")?.cgColor
-        weatherIconView.layer.borderWidth = 1
-        fetchWeatherData()
         locationManager.requestAlwaysAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = true
@@ -62,19 +56,13 @@ class MapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
         
-        self.mapKit.mapType = MKMapType.standard
-        self.mapKit.showsUserLocation = true
-        self.mapKit.setUserTrackingMode(.follow, animated: true)
-        self.mapKit.delegate = self
+        customView.mapView.mapType = MKMapType.standard
+        customView.mapView.showsUserLocation = true
+        customView.mapView.setUserTrackingMode(.follow, animated: true)
+        customView.mapView.delegate = self
         
-        navigationBar.layer.borderWidth = 1
-        navigationBar.layer.borderColor = UIColor(named: "black")?.cgColor
-        
-        resultDistanceLabel.attributedText = outline(string: "0m", font: "NotoSansKR-Black", size: 40, outlineSize: 3, textColor: UIColor(red: 0.4941, green: 0.9922, blue: 0.6941, alpha: 1.0), outlineColor: .black)
-        resultTimeLabel.attributedText = outline(string: "0:00:00", font: "NotoSansKR-Black", size: 40, outlineSize: 3, textColor: UIColor(red: 0.4941, green: 0.9922, blue: 0.6941, alpha: 1.0), outlineColor: .black)
-        resultDistanceLabel.isHidden = true
-        resultTimeLabel.isHidden = true
         setNotifications()
+        setNavigator()
         
         motionManager.startActivityUpdates(to: .main) { activity in
             guard let activity = activity else { return }
@@ -91,6 +79,13 @@ class MapViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setNavigator() {
+        leftNavButton.image = UIImage(named: "rife_icon")?.withRenderingMode(.alwaysOriginal)
+        rightNavButton.image = UIImage(named: "setting_icon")?.withRenderingMode(.alwaysOriginal)
+        self.navigationItem.leftBarButtonItem = leftNavButton
+        self.navigationItem.rightBarButtonItem = rightNavButton
     }
     
     func generateMapImage() {
@@ -144,31 +139,6 @@ class MapViewController: UIViewController {
     func setNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(addbackGroundTime(_:)), name: NSNotification.Name("sceneWillEnterForeground"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(stopTimer), name: NSNotification.Name("sceneDidEnterBackground"), object: nil)
-    }
-    
-    func fetchWeatherData() -> Void {
-        guard let currentLocation = locationManager.location else { return }
-        let lati = currentLocation.coordinate.latitude
-        let longi = currentLocation.coordinate.longitude
-        let key = "e48c83dbb4739468d69bb4e998f8939d"
-        let url = "http://api.openweathermap.org/data/2.5/weather?lat=\(lati)&lon=\(longi)&appid=\(key)"
-        
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result{
-            case .success: guard let result = response.data else { return }
-                let json = JSON(result)
-                
-                for item in json["weather"].arrayValue {
-                    self.currentWeather = item["main"].stringValue
-                    let icon = item["icon"].stringValue
-                    let url = URL(string: "http://openweathermap.org/img/wn/\(icon)@2x.png")
-                    self.weatherIconView.kf.setImage(with: url)
-                }
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
     }
     
     func checkUserLocationServicesAuthorization() {
@@ -256,7 +226,30 @@ class MapViewController: UIViewController {
         let hoursString = hours > 9 ? "\(hours)" : "0\(hours)"
         
         totalRunTime = "\(hoursString):\(minutesString):\(secondsString)"
-        resultTimeLabel.text = self.totalRunTime
+        self.customView.timeLabel.text = self.totalRunTime
+    }
+    
+    func showSaveAlert() {
+        let alert = UIAlertController(title: "기록 저장하기", message: "이 기록에 메모를 남겨주세요.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "저장", style: .default) { action in
+            lazy var data = self.recordImage.jpegData(compressionQuality: 0.1)!
+            let task = RecordObject(image: data, distance: self.totalDistance, time: self.totalRunTime, memo: alert.textFields?[0].text ?? "")
+            try! self.localRealm.write {
+                self.localRealm.add(task)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "기록 삭제", style: .destructive)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        alert.addTextField()
+        
+        present(alert, animated: true)
+    }
+    
+    func resetTimeLabel() {
+        self.customView.timeLabel.text = "00:00:00"
     }
     
     @IBAction func runButtonClicked(_ sender: UIButton) {
@@ -271,20 +264,15 @@ class MapViewController: UIViewController {
             checkCurrentLocationAuthorization(authorizationStatus: authorizationStatus)
             
             if authorizationStatus == .authorizedAlways {
-                fetchWeatherData()
-                resultTimeLabel.text = "00:00:00"
-                resultDistanceLabel.text = "0m"
+                resetTimeLabel()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MapViewController.keepTimer), userInfo: nil, repeats: true)
                 self.totalDistance = CLLocationDistance()
                 self.previousCoordinate = locationManager.location?.coordinate
                 locationManager.startUpdatingLocation()
                 self.points = []
-                self.mapKit.showsUserLocation = true
-                self.mapKit.setUserTrackingMode(.follow, animated: true)
-                runButton.setImage(UIImage(named: "Stop"), for: .normal)
+                self.customView.mapView.showsUserLocation = true
+                self.customView.mapView.setUserTrackingMode(.follow, animated: true)
                 self.runMode = .running
-                resultDistanceLabel.isHidden = false
-                resultTimeLabel.isHidden = false
             } else {
                 let alert = UIAlertController(title: "러닝 시작 실패", message: "위치 권한을 항상 허용해야 정확한 거리  측정이 가능합니다.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "확인", style: .default)
@@ -302,52 +290,31 @@ class MapViewController: UIViewController {
                 }
             }
         } else if runMode == .running {
-            self.mapKit.showsUserLocation = false
-            self.mapKit.setUserTrackingMode(.none, animated: true)
-            runButton.setImage(UIImage(named: "Save"), for: .normal)
+            self.customView.mapView.showsUserLocation = false
+            self.customView.mapView.setUserTrackingMode(.none, animated: true)
             self.runMode = .finished
-            resultDistanceLabel.isHidden = false
             let distanceFormatter = MKDistanceFormatter()
             distanceFormatter.units = .metric
             let stringDistance = distanceFormatter.string(fromDistance: totalDistance)
-            resultDistanceLabel.text = stringDistance
-            resultTimeLabel.isHidden = false
+
             generateMapImage()
             timer.invalidate()
             locationManager.stopUpdatingLocation()
             endTime = Date()
-            resultTimeLabel.text = self.totalRunTime
+            self.customView.timeLabel.text = self.totalRunTime
         } else if runMode == .finished {
             timer.invalidate()
             (hours, minutes, seconds, fractions) = (0, 0, 0, 0)
-            resultTimeLabel.text = "00:00:00"
-            resultDistanceLabel.text = "0m"
-            self.mapKit.setUserTrackingMode(.follow, animated: true)
+            resetTimeLabel()
+            self.customView.mapView.setUserTrackingMode(.follow, animated: true)
             locationManager.stopUpdatingLocation()
-            let overlays = mapKit.overlays
-            mapKit.removeOverlays(overlays)
-            runButton.setImage(UIImage(named: "Start"), for: .normal)
+            let overlays = self.customView.mapView.overlays
+            self.customView.mapView.removeOverlays(overlays)
             self.runMode = .ready
-            resultDistanceLabel.isHidden = true
-            resultTimeLabel.isHidden = true
-            self.mapKit.showsUserLocation = true
+            self.customView.mapView.showsUserLocation = true
             
-            let alert = UIAlertController(title: "기록 저장하기", message: "이 기록에 메모를 남겨주세요.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "저장", style: .default) { action in
-                lazy var data = self.recordImage.jpegData(compressionQuality: 0.1)!
-                let task = RecordObject(image: data, distance: self.totalDistance, time: self.totalRunTime, memo: alert.textFields?[0].text ?? "")
-                try! self.localRealm.write {
-                    self.localRealm.add(task)
-                }
-            }
+            showSaveAlert()
             
-            let cancelAction = UIAlertAction(title: "기록 삭제", style: .destructive)
-            
-            alert.addAction(okAction)
-            alert.addAction(cancelAction)
-            alert.addTextField()
-            
-            present(alert, animated: true)
         }
     }
 }
@@ -387,9 +354,9 @@ extension MapViewController: CLLocationManagerDelegate {
         distanceFormatter.units = .metric
         let addedDistance = loc1.distance(from: loc2)
         let stringDistance = distanceFormatter.string(fromDistance: totalDistance)
-        self.resultDistanceLabel.text = "\(stringDistance)"
+        //self.resultDistanceLabel.text = "\(stringDistance)"
         let lineDraw = MKPolyline(coordinates: points, count:points.count)
-        self.mapKit.addOverlay(lineDraw)
+        self.customView.mapView.addOverlay(lineDraw)
         self.totalDistance += addedDistance
         self.previousCoordinate = location.coordinate
     }
