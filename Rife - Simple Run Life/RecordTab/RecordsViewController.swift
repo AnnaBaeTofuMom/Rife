@@ -13,17 +13,22 @@ import MapKit
 class RecordsViewController: UIViewController {
     var tableView = UITableView()
     var searchBar = UISearchBar()
-    
-    let localRealm = try! Realm()
     var task: Results<RecordObject>!
     var filteredTask: Results<RecordObject>! {
         didSet {
             tableView.reloadData()
         }
     }
+    let localRealm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(tableView)
+        view.addSubview(searchBar)
+        
+        configuration()
+        constraints()
+        setNavigator()
         
         searchBar.placeholder = "작성하신 메모로 기록을 검색해보세요."
         task = localRealm.objects(RecordObject.self)
@@ -38,6 +43,40 @@ class RecordsViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    func configuration() {
+        view.backgroundColor = UIColor(named: "background_green")
+        tableView.backgroundColor = UIColor(named: "background_green")
+        searchBar.backgroundImage = UIImage(named: "background_green_img")
+        
+        tableView.register(RecordTableViewCell.self, forCellReuseIdentifier: RecordTableViewCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
+    }
+    
+    func constraints() {
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+    func setNavigator() {
+        let leftNavButton = UIBarButtonItem()
+        let rightNavButton = UIBarButtonItem()
+        
+        leftNavButton.image = UIImage(named: "rife_icon")?.withRenderingMode(.alwaysOriginal)
+        rightNavButton.image = UIImage(named: "setting_icon")?.withRenderingMode(.alwaysOriginal)
+        
+        self.navigationItem.leftBarButtonItem = leftNavButton
+        self.navigationItem.rightBarButtonItem = rightNavButton
+    }
+    
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredTask = searchText.isEmpty ? task : task.filter("memo CONTAINS[c] %@", searchText)
         self.tableView.reloadData()
@@ -46,40 +85,32 @@ class RecordsViewController: UIViewController {
 
 extension RecordsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rdv = self.storyboard?.instantiateViewController(withIdentifier: "RecordDetail") as! RecordDetailViewController
-        rdv.recordData = self.filteredTask[indexPath.row]
-        
-        self.navigationController?.pushViewController(rdv, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Record", for: indexPath) as? RecordsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "record", for: indexPath) as? RecordTableViewCell else {
             return UITableViewCell()
         }
         
         let image = UIImage(data: task[indexPath.row].image)
         let date = filteredTask[indexPath.row].date
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "YYYY년 MM월 dd일 HH:mm"
+        dateformatter.dateFormat = "YYYY.MM.dd HH:mm"
         let stringDate = dateformatter.string(from: date)
         let distanceformatter = MKDistanceFormatter()
         distanceformatter.units = .metric
         let stringDistance = distanceformatter.string(fromDistance: filteredTask[indexPath.row].distance)
         
-        cell.mapImageView.image = image
+        cell.mapImage.image = image
         cell.dateLabel.text = stringDate
         cell.distanceLabel.text = stringDistance
-        cell.timeLabel.text = filteredTask[indexPath.row].time
 
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 98
     }
 }
 
 extension RecordsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let taskToDelete = task[indexPath.row]
